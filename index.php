@@ -5,7 +5,7 @@ include __DIR__ . '/includes/header.php';
 $preguntas_file = __DIR__ . '/data/preguntas.json';
 $preguntas_data = load_json($preguntas_file);
 ?>
-
+<form class="form-two-columns" action="process.php" method="post">
 <form action="process.php" method="post">
 <?php
 foreach ($preguntas_data as $campo => $info) {
@@ -58,6 +58,7 @@ foreach ($preguntas_data as $campo => $info) {
 }
 ?>
 <input type="submit" value="Enviar">
+</form>
 </form>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

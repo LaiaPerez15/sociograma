@@ -368,3 +368,29 @@ footer {
 }
 
 /* End of file */
+
+.form-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+.form-two-columns fieldset {
+  width: 100%;
+}
+
+.form-two-columns .form-row,
+.form-two-columns .questions-wrap,
+.form-two-columns label,
+.form-two-columns input,
+.form-two-columns textarea,
+.form-two-columns select {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .form-two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
