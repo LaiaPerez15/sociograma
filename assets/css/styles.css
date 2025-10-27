@@ -1,13 +1,6 @@
-/* ========================================================
-   Redesigned styles for Sociograma
-   - Modern, accessible, responsive
-   - Uses CSS variables for easy theming
-   - Improved form controls, buttons and layout
-   ======================================================== */
 
 :root {
-  /* Paleta: tonos tierra (blanco roto, beige, marrón) */
-  --muted: #8b7b6a; /* beige/marrón suave para textos secundarios */
+  --muted: #584026; /* beige/marrón suave para textos secundarios */
   --text: #2b2b2b; /* texto principal oscuro */
   --accent: #6b4c3b; /* marrón cálido (principal) */
   --accent-600: #54392d; /* marrón más oscuro */
@@ -33,7 +26,7 @@ body {
 body {
   font-family: Inter, 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
   /* Imagen de fondo con overlay ligero para efecto "blanco roto" */
-  background: linear-gradient(rgba(247,245,239,0.72), rgba(242,239,232,0.72)), url('../../img/fondo.jpg');
+  background: linear-gradient(rgba(247, 245, 239, 0.568), rgba(242, 239, 232, 0.774)), url('../../img/fondo.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -95,6 +88,23 @@ main {
   flex: 1;
   min-width: 10rem
 }
+
+/* Grid para campos (no preguntas) en 2 columnas */
+.fields-grid.two-columns{display:flex;flex-direction:column;gap:1rem}
+.fields-grid.two-columns fieldset{width:100%;margin:0}
+@media (min-width:700px){
+  .fields-grid.two-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+  .fields-grid.two-columns fieldset{width:auto}
+}
+
+/* Fieldset que debe ocupar todo el ancho de la grid (por ejemplo observaciones) */
+.fields-grid.two-columns fieldset.full-width{grid-column:1 / -1}
+
+/* Botón full-width */
+.btn.full-width{width:100%;display:inline-flex;justify-content:center;padding:.9rem 1rem}
+
+/* Asegurar que los fieldsets marcados como .half ocupen una sola columna en la grid */
+.fields-grid.two-columns fieldset.half{grid-column:auto}
 
 /* Contenedor y estilo de "burbujitas" para preguntas */
 .questions-wrap{
@@ -162,8 +172,30 @@ label.question input[type='radio']:checked + span, label.question input[type='ch
 .questions-wrap.two-columns{display:flex;flex-direction:column;gap:.7rem}
 /* Activar grid de 2 columnas en pantallas medianas/desktop */
 @media (min-width:700px){
-  .questions-wrap.two-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
-  .questions-wrap.two-columns .question, .questions-wrap.two-columns .question-bubble{width:100%}
+  .questions-wrap.two-columns{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.7rem;
+    align-items:start;
+  }
+  /* Asegurar que los hijos directos ocupen toda la celda y centren su contenido */
+  .questions-wrap.two-columns > label.question,
+  .questions-wrap.two-columns > .question,
+  .questions-wrap.two-columns > .question-bubble{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    margin:0;
+  }
+  /* El span interior debe llenar la celda para que el área clicable sea completa */
+  .questions-wrap.two-columns > label.question > span,
+  .questions-wrap.two-columns > .question > span,
+  .questions-wrap.two-columns > .question-bubble > span{
+    display:block !important;
+    width:100%;
+    text-align:center;
+  }
 }
 
 fieldset {

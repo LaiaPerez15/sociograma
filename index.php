@@ -5,11 +5,14 @@ include __DIR__ . '/includes/header.php';
 $preguntas_file = __DIR__ . '/data/preguntas.json';
 $preguntas_data = load_json($preguntas_file);
 ?>
-<form class="form-two-columns" action="process.php" method="post">
 <form action="process.php" method="post">
 <?php
+// Abrimos la grid para los campos normales (no 'preguntas')
+echo "<div class='fields-grid two-columns'>";
 foreach ($preguntas_data as $campo => $info) {
     if ($campo === 'preguntas') {
+        // cerramos la grid antes de las preguntas
+        echo "</div>";
         foreach ($info as $index => $preg) {
             echo "<fieldset><legend>{$preg['texto']}</legend>";
             echo "<div class='questions-wrap two-columns'>";
@@ -24,11 +27,20 @@ foreach ($preguntas_data as $campo => $info) {
             echo "</div>";
             echo "</fieldset>";
         }
+        // reabrimos la grid para los siguientes campos
+        echo "<div class='fields-grid two-columns'>";
     } else {
         $tipo = $info['tipo'];
         $valor = $info['valor'] ?? '';
-        echo "<fieldset>";
-        echo "<legend>" . ucfirst(str_replace('_',' ',$campo)) . "</legend>";
+        // Determinar clase del fieldset: observaciones -> full-width, campos text -> half, resto ninguno
+        $fsClass = '';
+        if ($campo === 'observaciones') {
+            $fsClass = 'full-width';
+        } elseif ($tipo === 'text') {
+            $fsClass = 'half';
+        }
+        echo $fsClass ? "<fieldset class='$fsClass'>" : "<fieldset>";
+        echo "<legend>" . ucfirst(str_replace('_', ' ', $campo)) . "</legend>";
         switch ($tipo) {
             case 'text':
             case 'number':
@@ -47,18 +59,29 @@ foreach ($preguntas_data as $campo => $info) {
                 }
                 echo "</select>";
                 break;
+            case 'radio':
+                // Renderizar radios como burbujas (similar a preguntas)
+                foreach ($info['opciones'] as $op) {
+                    $val = htmlspecialchars($op, ENT_QUOTES);
+                    $labelText = ucfirst(str_replace('_',' ',$op));
+                    echo "<label class='question'><input type='radio' name='$campo' value='$val' required><span>" . $labelText . "</span></label>";
+                }
+                break;
             case 'checkbox':
                 foreach ($info['opciones'] as $op) {
-                    echo "<input type='checkbox' name='{$campo}[]' value='$op'> $op<br>";
+                    echo "<label class='question'><input type='checkbox' name='{$campo}[]' value='$op'><span>" . ucfirst($op) . "</span></label>";
                 }
                 break;
         }
-        echo "</fieldset><br>";
+        echo "</fieldset>";
     }
 }
+// cerramos la grid si quedó abierta
+echo "</div>";
 ?>
-<input type="submit" value="Enviar">
-</form>
+<div style="margin-top:1rem">
+    <input type="submit" class="btn full-width" value="Enviar">
+</div>
 </form>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

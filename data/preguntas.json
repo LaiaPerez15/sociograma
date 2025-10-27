@@ -72,8 +72,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -81,8 +81,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -90,8 +90,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -99,8 +99,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -108,8 +108,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -117,8 +117,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -126,8 +126,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -135,8 +135,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -144,8 +144,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -153,8 +153,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -162,8 +162,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -171,8 +171,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -180,8 +180,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -189,8 +189,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -198,8 +198,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -207,8 +207,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -216,8 +216,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -225,8 +225,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -234,8 +234,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         },
         {
@@ -243,8 +243,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "positivo",
-                "negativo"
+                "si",
+                "no"
             ]
         }
     ]
