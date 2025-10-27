@@ -231,5 +231,205 @@
                 ]
             }
         ]
+    },
+    {
+        "nombre": "Melani",
+        "autor_favorito": "fgnxfgnh",
+        "edad": "46",
+        "fecha_evento": "2025-10-09",
+        "hora_llegada": "19:07",
+        "genero_favorito": "misterio",
+        "actividades": [
+            "lecturas",
+            "talleres",
+            "firmas",
+            "charlas"
+        ],
+        "seccion": "comic",
+        "formato": "impreso",
+        "color_libro": "#ff0000",
+        "observaciones": "gjdnmxdgfh",
+        "preguntas": [
+            {
+                "texto": "¿Lees al menos un libro al mes?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Te gusta asistir a eventos de libros?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Sueles recomendar libros a tus amigos?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Compras libros durante los eventos?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Participarías en un club de lectura organizado por el evento?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Prefieres libros físicos sobre digitales?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Lees más de 5 libros al año?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Te interesa conocer nuevos autores en los eventos?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Sueles tomar notas durante las lecturas?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Asistes a eventos literarios en línea?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Te gusta participar en talleres de escritura?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Intercambias libros con amigos?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Sueles seguir reseñas de libros en redes?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Participarías en concursos de lectura?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Disfrutas de la lectura de poesía?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Lees cómics o novelas gráficas?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Te gusta la lectura en grupo?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Sueles escribir reseñas de los libros que lees?",
+                "respuesta": "no",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Prefieres asistir a eventos presenciales sobre virtuales?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            },
+            {
+                "texto": "¿Participarías en un club de lectura mensual?",
+                "respuesta": "si",
+                "tipo": "radio",
+                "opciones": [
+                    "si",
+                    "no"
+                ]
+            }
+        ]
     }
 ]
