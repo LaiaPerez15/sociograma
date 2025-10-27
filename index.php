@@ -1,74 +1,63 @@
 <?php
-require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/function.php';
 include __DIR__ . '/includes/header.php';
 
-// Variables vacías por defecto
-$old_field = $old_field ?? [];
-$errors = $errors ?? [];
+$preguntas_file = __DIR__ . '/data/preguntas.json';
+$preguntas_data = load_json($preguntas_file);
 ?>
 
-<form method="POST" action="process.php" novalidate>
-    <fieldset>
-        <legend>Identificación</legend>
-        <label for="nombre">Tu nombre:</label>
-        <input type="text" id="nombre" name="nombre" minlength="3" required
-               value="<?= old_field('nombre', $old_field) ?>">
-        <?= field_error('nombre', $errors) ?>
-
-        <label for="grupo">Grupo:</label>
-        <select id="grupo" name="grupo" required>
-            <option value="">Selecciona...</option>
-            <option value="DAW1">DAW1</option>
-            <option value="DAW2">DAW2</option>
-        </select>
-
-        <label for="email">Correo (opcional):</label>
-        <input type="email" id="email" name="email"
-               value="<?= old_field('email', $old_field) ?>">
-    </fieldset>
-
-    <fieldset>
-        <legend>Preferencias de colaboración</legend>
-        <label for="positivo">¿Con quién te gusta trabajar?</label>
-        <input type="text" id="positivo" name="positivo" required
-               value="<?= old_field('positivo', $old_field) ?>">
-        <?= field_error('positivo', $errors) ?>
-
-        <label for="negativo">¿Con quién prefieres no trabajar?</label>
-        <input type="text" id="negativo" name="negativo" required
-               value="<?= old_field('negativo', $old_field) ?>">
-        <?= field_error('negativo', $errors) ?>
-
-        <label for="motivo">Motivo (opcional):</label>
-        <textarea id="motivo" name="motivo"><?= old_field('motivo', $old_field) ?></textarea>
-    </fieldset>
-
-    <fieldset>
-        <legend>Rol y habilidades</legend>
-        <label>Rol habitual:</label>
-        <label><input type="radio" name="rol_habitual" value="frontend"> Frontend</label>
-        <label><input type="radio" name="rol_habitual" value="backend"> Backend</label>
-        <label><input type="radio" name="rol_habitual" value="fullstack"> Fullstack</label>
-        <label><input type="radio" name="rol_habitual" value="devops"> DevOps</label>
-
-        <label for="lenguaje_fuerte">Lenguaje más fuerte:</label>
-        <select id="lenguaje_fuerte" name="lenguaje_fuerte">
-            <option value="">Selecciona...</option>
-            <option>PHP</option>
-            <option>JavaScript</option>
-            <option>Python</option>
-            <option>Java</option>
-            <option>Otro</option>
-        </select>
-    </fieldset>
-
-    <fieldset>
-        <legend>Organización</legend>
-        <label for="fecha_respuesta">Fecha:</label>
-        <input type="date" id="fecha_respuesta" name="fecha_respuesta" required>
-    </fieldset>
-
-    <button type="submit">Enviar</button>
+<form action="process.php" method="post">
+<?php
+foreach ($preguntas_data as $campo => $info) {
+    if ($campo === 'preguntas') {
+        foreach ($info as $index => $preg) {
+            echo "<fieldset><legend>{$preg['texto']}</legend>";
+            echo "<div class='questions-wrap two-columns'>";
+            foreach ($preg['opciones'] as $opcion) {
+                $val = htmlspecialchars($opcion, ENT_QUOTES);
+                $labelText = ucfirst($opcion);
+                echo "<label class='question'>";
+                echo "<input type='radio' name='pregunta" . ($index + 1) . "' value='$val' required>";
+                echo "<span>" . $labelText . "</span>";
+                echo "</label>";
+            }
+            echo "</div>";
+            echo "</fieldset>";
+        }
+    } else {
+        $tipo = $info['tipo'];
+        $valor = $info['valor'] ?? '';
+        echo "<fieldset>";
+        echo "<legend>" . ucfirst(str_replace('_',' ',$campo)) . "</legend>";
+        switch ($tipo) {
+            case 'text':
+            case 'number':
+            case 'date':
+            case 'time':
+            case 'color':
+                echo "<input type='$tipo' name='$campo' value='$valor' required>";
+                break;
+            case 'textarea':
+                echo "<textarea name='$campo' rows='4' cols='50'>$valor</textarea>";
+                break;
+            case 'select':
+                echo "<select name='$campo' required>";
+                foreach ($info['opciones'] as $op) {
+                    echo "<option value='$op'>$op</option>";
+                }
+                echo "</select>";
+                break;
+            case 'checkbox':
+                foreach ($info['opciones'] as $op) {
+                    echo "<input type='checkbox' name='{$campo}[]' value='$op'> $op<br>";
+                }
+                break;
+        }
+        echo "</fieldset><br>";
+    }
+}
+?>
+<input type="submit" value="Enviar">
 </form>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

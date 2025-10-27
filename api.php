@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/function.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $file = __DIR__ . '/data/sociograma.json';

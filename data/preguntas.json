@@ -1,0 +1,251 @@
+{
+    "nombre": {
+        "valor": "",
+        "tipo": "text"
+    },
+    "autor_favorito": {
+        "valor": "",
+        "tipo": "text"
+    },
+    "edad": {
+        "valor": "",
+        "tipo": "number"
+    },
+    "fecha_evento": {
+        "valor": "",
+        "tipo": "date"
+    },
+    "hora_llegada": {
+        "valor": "",
+        "tipo": "time"
+    },
+    "genero_favorito": {
+        "valor": "",
+        "tipo": "radio",
+        "opciones": [
+            "fantasia",
+            "misterio",
+            "romance",
+            "ciencia_ficcion"
+        ]
+    },
+    "actividades": {
+        "valor": [],
+        "tipo": "checkbox",
+        "opciones": [
+            "lecturas",
+            "talleres",
+            "firmas",
+            "charlas"
+        ]
+    },
+    "seccion": {
+        "valor": "",
+        "tipo": "select",
+        "opciones": [
+            "novedades",
+            "clasicos",
+            "juvenil",
+            "comic"
+        ]
+    },
+    "formato": {
+        "valor": "",
+        "tipo": "select",
+        "opciones": [
+            "digital",
+            "impreso",
+            "audiolibro"
+        ]
+    },
+    "color_libro": {
+        "valor": "",
+        "tipo": "color"
+    },
+    "observaciones": {
+        "valor": "",
+        "tipo": "textarea"
+    },
+    "preguntas": [
+        {
+            "texto": "¿Lees al menos un libro al mes?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Te gusta asistir a eventos de libros?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Sueles recomendar libros a tus amigos?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Compras libros durante los eventos?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Participarías en un club de lectura organizado por el evento?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Prefieres libros físicos sobre digitales?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Lees más de 5 libros al año?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Te interesa conocer nuevos autores en los eventos?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Sueles tomar notas durante las lecturas?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Asistes a eventos literarios en línea?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Te gusta participar en talleres de escritura?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Intercambias libros con amigos?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Sueles seguir reseñas de libros en redes?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Participarías en concursos de lectura?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Disfrutas de la lectura de poesía?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Lees cómics o novelas gráficas?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Te gusta la lectura en grupo?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Sueles escribir reseñas de los libros que lees?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Prefieres asistir a eventos presenciales sobre virtuales?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        },
+        {
+            "texto": "¿Participarías en un club de lectura mensual?",
+            "respuesta": "",
+            "tipo": "radio",
+            "opciones": [
+                "positivo",
+                "negativo"
+            ]
+        }
+    ]
+}
