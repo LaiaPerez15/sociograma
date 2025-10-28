@@ -1,39 +1,28 @@
-
 :root {
-  --muted: #584026; /* beige/marrón suave para textos secundarios */
-  --text: #2b2b2b; /* texto principal oscuro */
-  --accent: #6b4c3b; /* marrón cálido (principal) */
-  --accent-600: #54392d; /* marrón más oscuro */
+  --muted: #584026;
+  --text: #2b2b2b;
+  --accent: #6b4c3b;
+  --accent-600: #54392d;
   --surface-shadow: 0 8px 24px rgba(43, 37, 33, 0.06);
   --radius: 12px;
-  --radius-sm: 8px;
   --gap: 1rem;
   --max-width: 1100px;
 }
 
-/* Reset base */
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0
-}
-
-html,
-body {
-  height: 100%
+  padding: 0;
 }
 
 body {
-  font-family: Inter, 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
-  /* Imagen de fondo con overlay ligero para efecto "blanco roto" */
-  background: linear-gradient(rgba(247, 245, 239, 0.568), rgba(242, 239, 232, 0.774)), url('../../img/fondo.jpg');
+  font-family: Inter, 'Segoe UI', Roboto, system-ui, -apple-system, Arial;
+  background: linear-gradient(rgba(247, 245, 239, 0.57), rgba(242, 239, 232, 0.77)), url('../../img/fondo.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.45;
   padding: 2rem 1rem;
 }
@@ -43,11 +32,10 @@ body {
   margin: 0 auto;
 }
 
-/* Header / brand */
 header {
   background: linear-gradient(90deg, var(--accent), var(--accent-600));
   color: #fff;
-  border-radius: calc(var(--radius) - 4px);
+  border-radius: calc(var(--radius)-4px);
   padding: 1.25rem 1.5rem;
   box-shadow: var(--surface-shadow);
   display: flex;
@@ -58,371 +46,177 @@ header {
 header h1 {
   font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.2px
 }
 
 header p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9)
+  color: rgba(255, 255, 255, 0.9);
 }
 
-main {
-  margin: 1.5rem auto;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--surface-shadow);
-}
-
-/* Layout helpers for forms */
-.form-row {
-  display: flex;
+main.form-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--gap);
-  align-items: stretch
+  height: calc(100vh - 4rem);
+  /* altura total menos padding/header */
 }
 
-.two-columns .form-row {
-  flex-wrap: wrap
+/* IZQUIERDA: Campos normales */
+.izquierda {
+  overflow: hidden;
 }
 
-.form-row>* {
-  flex: 1;
-  min-width: 10rem
+/* DERECHA: Preguntas con scroll */
+.derecha {
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  /* para el scroll */
 }
 
-/* Grid para campos (no preguntas) en 2 columnas */
-.fields-grid.two-columns{display:flex;flex-direction:column;gap:1rem}
-.fields-grid.two-columns fieldset{width:100%;margin:0}
-@media (min-width:700px){
-  .fields-grid.two-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-  .fields-grid.two-columns fieldset{width:auto}
-}
-
-/* Fieldset que debe ocupar todo el ancho de la grid (por ejemplo observaciones) */
-.fields-grid.two-columns fieldset.full-width{grid-column:1 / -1}
-
-/* Botón full-width */
-.btn.full-width{width:100%;display:inline-flex;justify-content:center;padding:.9rem 1rem}
-
-/* Asegurar que los fieldsets marcados como .half ocupen una sola columna en la grid */
-.fields-grid.two-columns fieldset.half{grid-column:auto}
-
-/* Contenedor y estilo de "burbujitas" para preguntas */
-.questions-wrap{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.65rem;
-  align-items:flex-start;
-  margin: .5rem 0 1rem 0;
-}
-
-.question-bubble{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.6rem 1.05rem;
-  border-radius:999px;
-  background: rgba(255,255,255,0.62); /* fondo semi-transparente */
-  -webkit-backdrop-filter: blur(6px) saturate(1.05);
-  backdrop-filter: blur(6px) saturate(1.05);
-  border: 1px solid rgba(43,37,33,0.06);
-  color:var(--text);
-  font-weight:600;
-  box-shadow: 0 6px 18px rgba(43,37,33,0.06);
-  transition: transform .14s, box-shadow .14s;
-  cursor:default;
-}
-
-.question-bubble:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(43,37,33,0.09);
-}
-
-/* Si las preguntas están en labels o inputs, permitir aplicar estilo automáticamente */
-label.question, .question {
-  display:inline-block;
-  border-radius:999px;
-  font-weight:600;
-}
-
-/* estilo interior de la burbuja: usamos un span dentro del label para poder cambiar el estado cuando el input está checked */
-label.question span, .question span {
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.45rem .9rem;
-  border-radius:999px;
-  background: rgba(255,255,255,0.62);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(43,37,33,0.05);
-  color:var(--text);
-  transition: transform .12s, box-shadow .12s, background .12s, color .12s;
-}
-
-label.question input[type='radio'], label.question input[type='checkbox']{display:none}
-
-/* estado seleccionado */
-label.question input[type='radio']:checked + span, label.question input[type='checkbox']:checked + span{
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(43,37,33,0.12);
-}
-
-/* layout dos columnas */
-.questions-wrap.two-columns{display:flex;flex-direction:column;gap:.7rem}
-/* Activar grid de 2 columnas en pantallas medianas/desktop */
-@media (min-width:700px){
-  .questions-wrap.two-columns{
-    display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:.7rem;
-    align-items:start;
-  }
-  /* Asegurar que los hijos directos ocupen toda la celda y centren su contenido */
-  .questions-wrap.two-columns > label.question,
-  .questions-wrap.two-columns > .question,
-  .questions-wrap.two-columns > .question-bubble{
-    display:flex !important;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    margin:0;
-  }
-  /* El span interior debe llenar la celda para que el área clicable sea completa */
-  .questions-wrap.two-columns > label.question > span,
-  .questions-wrap.two-columns > .question > span,
-  .questions-wrap.two-columns > .question-bubble > span{
-    display:block !important;
-    width:100%;
-    text-align:center;
-  }
-}
-
-fieldset {
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-sm);
-  margin-bottom: 1rem;
-}
-
-legend {
-  padding: 0 .5rem;
-  font-weight: 600;
-  color: var(--muted)
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: .35rem;
-  font-size: .95rem
-}
-
-input[type='text'],
-input[type='email'],
-input[type='number'],
-select,
-textarea {
-  width: 100%;
-  padding: .75rem 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: linear-gradient(180deg, #fff, #fbfdff);
-  font-size: 0.95rem;
-  color: var(--text);
-  transition: box-shadow .18s, border-color .18s, transform .08s;
-}
-
-input[type='text']:focus,
-input[type='email']:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 6px 18px rgba(107, 76, 59, 0.12);
-  transform: translateY(-1px);
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical
-}
-
-/* Primary button */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  padding: .7rem 1rem;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
-  font-weight: 700;
-  color: #fff;
-  background: var(--accent);
-  box-shadow: 0 6px 18px rgba(107, 76, 59, 0.12);
-  transition: transform .12s, box-shadow .12s
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(107, 76, 59, 0.14)
-}
-
-.btn.secondary {
-  background: #f1f5f9;
-  color: var(--muted);
-  box-shadow: none;
-  border: 1px solid rgba(15, 23, 42, 0.04)
-}
-
-/* Custom radios & checkboxes */
-.choice {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  position: relative;
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  display: inline-block;
-  vertical-align: middle;
-  background: #fff;
-  cursor: pointer
-}
-
-input[type='radio'] {
-  border-radius: 50%
-}
-
-input[type='checkbox']:checked,
-input[type='radio']:checked {
-  background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 4px 10px rgba(107, 76, 59, 0.12)
-}
-
-input[type='checkbox']:checked::after {
-  content: '\2713';
-  color: #fff;
-  display: block;
-  text-align: center;
-  font-size: 12px;
-  line-height: 18px
-}
-
-input[type='radio']:checked::after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  display: block;
-  margin: 3px
-}
-
-/* Error and helper */
-.error {
-  color: #ef4444;
-  font-size: 0.85rem;
-  margin-top: 0.35rem
-}
-
-.hint {
-  color: var(--muted);
-  font-size: 0.9rem
-}
-
-/* Footer */
-footer {
-  margin-top: 1rem;
-  padding: 1rem 1.25rem;
-  border-radius: calc(var(--radius) - 6px);
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem
-}
-
-/* Small responsive tweaks */
-@media (max-width:900px) {
-  .form-row {
-    flex-direction: column
-  }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start
-  }
-}
-
-@media (max-width:480px) {
-  body {
-    padding: 1rem
-  }
-
-  header h1 {
-    font-size: 1.05rem
-  }
-
-  main {
-    padding: 1rem
-  }
-}
-
-/* Evitar background-attachment: fixed en pantallas pequeñas para mejorar rendimiento móvil */
-@media (max-width:900px){
-  body{background-attachment:scroll;background-attachment: initial}
-}
-
-/* Utility spacing */
-.mb-1 {
-  margin-bottom: 0.75rem
-}
-
-.mb-2 {
-  margin-bottom: 1.25rem
-}
-
-/* Small subtle accessibility focus style for keyboard users */
-:focus {
-  outline: 3px solid rgba(107, 76, 59, 0.12);
-  outline-offset: 3px
-}
-
-/* End of file */
-
-.form-two-columns {
+/* GRID DE CAMPOS NORMALES */
+.fields-grid.two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap);
 }
 
-.form-two-columns fieldset {
+.fields-grid.two-columns fieldset {
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.fields-grid.two-columns fieldset.full-width {
+  grid-column: 1 / -1;
+}
+
+/* BOTÓN FULL WIDTH */
+.btn.full-width {
+  width: 100%;
+  padding: .9rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(107, 76, 59, 0.12);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.btn.full-width:hover {
+  box-shadow: 0 12px 30px rgba(107, 76, 59, 0.14);
+  transform: translateY(-2px);
+}
+
+/* PREGUNTAS */
+.preguntas-grid {
+  /* ensure questions in the right column are shown as two columns */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+
+.preguntas-grid fieldset {
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* prevent fieldsets from breaking when using column-like layouts */
+.preguntas-grid fieldset {
   width: 100%;
 }
 
-.form-two-columns .form-row,
-.form-two-columns .questions-wrap,
-.form-two-columns label,
-.form-two-columns input,
-.form-two-columns textarea,
-.form-two-columns select {
+.questions-wrap.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+}
+
+label.question {
+  display: block;
+  background: rgba(255, 255, 255, 0.62);
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  padding: .45rem .9rem;
+  border: 1px solid rgba(43, 37, 33, 0.05);
+  transition: all .12s;
+}
+
+label.question input {
+  display: none;
+}
+
+label.question input:checked+span {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(43, 37, 33, 0.12);
+}
+
+label.question span {
+  display: block;
   width: 100%;
 }
 
-@media (max-width: 700px) {
-  .form-two-columns {
+/* Responsive */
+@media (max-width: 900px) {
+  main.form-two-columns {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .derecha {
+    max-height: none;
+  }
+
+  .preguntas-grid {
     grid-template-columns: 1fr;
   }
 }
 
+.form-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  height: calc(100vh - 4rem);
+  /* Ajusta según tu padding/margen superior */
+}
+
+.izquierda,
+.derecha {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.izquierda form {
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  /* espacio para scroll */
+}
+
+.derecha .preguntas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* 2 columnas de preguntas completas */
+  gap: var(--gap);
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Scroll personalizado opcional */
+.izquierda form::-webkit-scrollbar,
+.derecha .preguntas-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.izquierda form::-webkit-scrollbar-thumb,
+.derecha .preguntas-grid::-webkit-scrollbar-thumb {
+  background: rgba(107, 76, 59, 0.3);
+  border-radius: 4px;
+}
