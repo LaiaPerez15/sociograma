@@ -72,8 +72,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "si",
-                "no"
+                "obviamente",
+                "ni de coña"
             ]
         },
         {
@@ -113,12 +113,12 @@
             ]
         },
         {
-            "texto": "¿Prefieres libros físicos sobre digitales?",
+            "texto": "¿Prefieres libros físicos o digitales?",
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "si",
-                "no"
+                "físicos",
+                "digitales"
             ]
         },
         {
@@ -145,6 +145,8 @@
             "tipo": "radio",
             "opciones": [
                 "si",
+                "de vez en cuando",
+                "solo subrayo",
                 "no"
             ]
         },
@@ -163,6 +165,7 @@
             "tipo": "radio",
             "opciones": [
                 "si",
+                "no he participado nunca",
                 "no"
             ]
         },
@@ -181,6 +184,7 @@
             "tipo": "radio",
             "opciones": [
                 "si",
+                "algunas",
                 "no"
             ]
         },
@@ -189,8 +193,9 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "si",
-                "no"
+                "puede ser",
+                "depende",
+                "nunca"
             ]
         },
         {
@@ -199,6 +204,7 @@
             "tipo": "radio",
             "opciones": [
                 "si",
+                "algunas",
                 "no"
             ]
         },
@@ -216,8 +222,8 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "si",
-                "no"
+                "me encanta",
+                "lo odio"
             ]
         },
         {
@@ -225,8 +231,9 @@
             "respuesta": "",
             "tipo": "radio",
             "opciones": [
-                "si",
-                "no"
+                "siemrpe",
+                "a veces",
+                "nunca"
             ]
         },
         {
