@@ -163,22 +163,6 @@ label.question span {
   width: 100%;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  main.form-two-columns {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-
-  .derecha {
-    max-height: none;
-  }
-
-  .preguntas-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .form-two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
